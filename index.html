@@ -13,7 +13,7 @@
     <link rel="icon" href="assets/poster.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Outfit:wght@300;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;500;600;700&display=swap" rel="stylesheet" />
     <style>
         :root {
             --void: #050a1a;
@@ -324,6 +324,111 @@
             max-width: 640px;
         }
 
+        article.manifest {
+            max-width: 680px;
+        }
+
+        article.manifest h2 {
+            font-size: clamp(56px, 10vw, 120px);
+            margin-bottom: 8px;
+        }
+
+        .badge {
+            display: inline-block;
+            margin: 8px 0 22px;
+            padding: 6px 12px;
+            border: 1px solid rgba(255, 215, 0, 0.45);
+            color: var(--gold);
+            letter-spacing: 0.28em;
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+        .essay {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 21px;
+            font-weight: 500;
+            line-height: 1.72;
+            color: rgba(244, 251, 255, 0.88);
+        }
+
+        .essay p { margin: 0 0 1.15em; }
+        .manifest > .essay p:first-of-type::first-letter {
+            float: left;
+            font-family: Cinzel, serif;
+            font-size: 68px;
+            line-height: 0.75;
+            padding: 8px 10px 0 0;
+            color: var(--cyan-2);
+        }
+
+        .chapter {
+            margin-top: 42px;
+            padding-top: 8px;
+        }
+
+        .chapter h3 {
+            font-family: Cinzel, serif;
+            font-size: 28px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 16px;
+            text-shadow: 0 0 18px rgba(255, 215, 0, 0.25);
+        }
+
+        .pull {
+            margin: 28px 0 28px 12px;
+            padding: 8px 0 8px 22px;
+            border-left: 2px solid var(--cyan);
+            font-family: Cinzel, serif;
+            font-size: 26px;
+            line-height: 1.25;
+            color: var(--cyan-2);
+            letter-spacing: 0.04em;
+        }
+
+        .verdict {
+            margin-top: 48px;
+            padding: 28px 24px;
+            border: 1px solid rgba(0, 180, 255, 0.28);
+            background: linear-gradient(180deg, rgba(0, 180, 255, 0.08), rgba(5, 10, 26, 0.2));
+        }
+
+        .verdict p {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 20px;
+            line-height: 1.65;
+            margin: 0 0 14px;
+        }
+
+        .verdict p:last-child { margin: 0; color: var(--gold); }
+
+        .sound {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 20;
+            display: none;
+            background: rgba(5, 10, 26, 0.72);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            color: var(--gold);
+            padding: 10px 14px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            font: 600 10px Outfit, sans-serif;
+            cursor: pointer;
+        }
+
+        body.done .sound { display: block; }
+
+        nav button:nth-of-type(1) { margin-bottom: 8px; }
+        nav button:nth-of-type(2) {
+            border-top: 1px solid rgba(0, 180, 255, 0.15);
+            padding-top: 16px;
+            margin-top: 6px;
+        }
+
         ul {
             list-style: none;
             display: grid;
@@ -462,9 +567,10 @@
         <aside class="mark" aria-hidden="true">
             <div class="mark-slash"></div>
             <p class="mark-no" id="markNo">01</p>
-            <p class="mark-word" id="markWord">FAIL RP</p>
+            <p class="mark-word" id="markWord">ONIX</p>
         </aside>
     </div>
+    <button type="button" class="sound" id="soundBtn">Muzika · uklj</button>
 
     <script src="pravila.js"></script>
     <script>
@@ -486,6 +592,30 @@
             return String(n).padStart(2, '0');
         }
 
+        function buildUvod(rule, i, total) {
+            let html = '<p class="idx">' + pad(i + 1) + ' / ' + pad(total) + '</p>';
+            html += '<p class="kicker" style="margin-bottom:8px">' + (rule.kicker || '') + '</p>';
+            html += '<h2>' + rule.title + '</h2>';
+            if (rule.badge) html += '<span class="badge">' + rule.badge + '</span>';
+            html += '<div class="essay">';
+            (rule.intro || []).forEach((p) => { html += '<p>' + gold(p) + '</p>'; });
+            html += '</div>';
+            (rule.chapters || []).forEach((ch) => {
+                html += '<section class="chapter">';
+                html += '<h3>' + ch.title + '</h3>';
+                if (ch.quote) html += '<p class="pull">“' + ch.quote + '”</p>';
+                html += '<div class="essay">';
+                (ch.body || []).forEach((p) => { html += '<p>' + gold(p) + '</p>'; });
+                html += '</div></section>';
+            });
+            if (rule.close && rule.close.length) {
+                html += '<div class="verdict">';
+                rule.close.forEach((p) => { html += '<p>' + gold(p) + '</p>'; });
+                html += '</div>';
+            }
+            return html;
+        }
+
         function build() {
             const total = rules.length;
             rules.forEach((rule, i) => {
@@ -496,27 +626,88 @@
                 nav.appendChild(btn);
 
                 const art = document.createElement('article');
+                if (rule.kind === 'uvod') art.classList.add('manifest');
                 if (i === 0) art.classList.add('active');
-                let html = '<p class="idx">' + pad(i + 1) + ' / ' + pad(total) + '</p>';
-                html += '<h2>' + rule.title + '</h2>';
-                if (rule.lead) html += '<p class="lead">' + gold(rule.lead) + '</p>';
-                if (rule.items && rule.items.length) {
-                    html += '<ul>' + rule.items.map((item) => '<li>' + gold(item) + '</li>').join('') + '</ul>';
+                if (rule.kind === 'uvod') {
+                    art.innerHTML = buildUvod(rule, i, total);
+                } else {
+                    let html = '<p class="idx">' + pad(i + 1) + ' / ' + pad(total) + '</p>';
+                    html += '<h2>' + rule.title + '</h2>';
+                    if (rule.lead) html += '<p class="lead">' + gold(rule.lead) + '</p>';
+                    if (rule.items && rule.items.length) {
+                        html += '<ul>' + rule.items.map((item) => '<li>' + gold(item) + '</li>').join('') + '</ul>';
+                    }
+                    if (rule.zones && rule.zones.length) {
+                        html += '<p class="lead" style="margin:28px 0 12px">' + (rule.zonesTitle || '') + '</p>';
+                        html += '<div class="zones">' + rule.zones.map((z) => '<span>' + z + '</span>').join('') + '</div>';
+                    }
+                    if (rule.codes && rule.codes.length) {
+                        html += '<p class="lead">' + (rule.codesTitle || '') + '</p>';
+                        html += '<div class="codes">' + rule.codes.map((c) => '<span>' + c + '</span>').join('') + '</div>';
+                    }
+                    art.innerHTML = html;
                 }
-                if (rule.zones && rule.zones.length) {
-                    html += '<p class="lead" style="margin:28px 0 12px">' + (rule.zonesTitle || '') + '</p>';
-                    html += '<div class="zones">' + rule.zones.map((z) => '<span>' + z + '</span>').join('') + '</div>';
-                }
-                if (rule.codes && rule.codes.length) {
-                    html += '<p class="lead">' + (rule.codesTitle || '') + '</p>';
-                    html += '<div class="codes">' + rule.codes.map((c) => '<span>' + c + '</span>').join('') + '</div>';
-                }
-                art.innerHTML = html;
                 pages.appendChild(art);
             });
             articles = [...document.querySelectorAll('article')];
             buttons = [...nav.querySelectorAll('button')];
             buttons.forEach((btn) => btn.addEventListener('click', () => show(Number(btn.dataset.go))));
+        }
+
+        let amb = null;
+
+        function startAmbience() {
+            if (amb) {
+                if (amb.ctx.state === 'suspended') amb.ctx.resume();
+                return;
+            }
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            const master = ctx.createGain();
+            master.gain.value = 0;
+            const filter = ctx.createBiquadFilter();
+            filter.type = 'lowpass';
+            filter.frequency.value = 720;
+            filter.Q.value = 0.7;
+            master.connect(filter);
+            filter.connect(ctx.destination);
+
+            function tone(freq, type, vol) {
+                const o = ctx.createOscillator();
+                const g = ctx.createGain();
+                o.type = type;
+                o.frequency.value = freq;
+                g.gain.value = vol;
+                o.connect(g);
+                g.connect(master);
+                o.start();
+            }
+            tone(55, 'sine', 0.28);
+            tone(82.4, 'sine', 0.14);
+            tone(110, 'triangle', 0.05);
+            tone(164.8, 'sine', 0.03);
+
+            const lfo = ctx.createOscillator();
+            const lfoG = ctx.createGain();
+            lfo.frequency.value = 0.05;
+            lfoG.gain.value = 90;
+            lfo.connect(lfoG);
+            lfoG.connect(filter.frequency);
+            lfo.start();
+
+            master.gain.linearRampToValueAtTime(0.09, ctx.currentTime + 2.4);
+            amb = { ctx, master, on: true };
+            document.getElementById('soundBtn').textContent = 'Muzika · uklj';
+        }
+
+        function toggleAmbience() {
+            if (!amb) {
+                startAmbience();
+                return;
+            }
+            amb.on = !amb.on;
+            amb.master.gain.cancelScheduledValues(amb.ctx.currentTime);
+            amb.master.gain.linearRampToValueAtTime(amb.on ? 0.09 : 0, amb.ctx.currentTime + 0.35);
+            document.getElementById('soundBtn').textContent = amb.on ? 'Muzika · uklj' : 'Muzika · isklj';
         }
 
         video.muted = true;
@@ -529,6 +720,7 @@
             } catch (e) {}
             body.classList.remove('is-playing', 'gate');
             body.classList.add('done');
+            startAmbience();
             show(0);
         }
 
@@ -569,6 +761,7 @@
         });
         document.getElementById('prev').addEventListener('click', () => show(page - 1));
         document.getElementById('next').addEventListener('click', () => show(page + 1));
+        document.getElementById('soundBtn').addEventListener('click', toggleAmbience);
     </script>
 </body>
 </html>

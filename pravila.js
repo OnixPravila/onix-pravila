@@ -17,6 +17,61 @@
 
 window.PRAVILA = [
   {
+    kind: 'uvod',
+    menu: 'Uvod',
+    title: 'ONIX',
+    badge: 'Medium Roleplay',
+    kicker: 'Temeljne vrijednosti',
+    intro: [
+      'Onix Roleplay temelji se na jasno definiranim vrijednostima koje predstavljaju osnovu naše zajednice. Te vrijednosti oblikuju način na koji pristupamo roleplayu, međusobnoj komunikaciji i razvoju servera.',
+      'Njihova svrha je pružiti smjernice svakom igraču, pomoći u donošenju ispravnih odluka te jasno razlikovati prihvatljivo od neprihvatljivog ponašanja. Poštivanjem ovih vrijednosti zajedno gradimo kvalitetno, ozbiljno i ugodno roleplay okruženje za sve.'
+    ],
+    chapters: [
+      {
+        title: 'Fair Play',
+        body: [
+          'Na Onix Roleplayu od svakog igrača očekujemo da se vodi načelima poštene igre, kako IC, tako i OOC. Poštovanje prema drugim igračima, korektan odnos, timski duh i međusobno uvažavanje temelj su zajednice koju želimo graditi. Na ovom serveru svi su jednaki i za pravila ne postoje iznimke.',
+          'Poštivanje pisanih pravila jednako je važno kao i poštivanje onih nepisanih: tolerancije, solidarnosti, međusobnog pomaganja i stvaranja pozitivne atmosfere. Kvalitetan roleplay uvijek će imati prednost nad željom za pobjedom pod svaku cijenu.',
+          'Nemojte gledati FiveM isključivo kroz pucnjavu i PvP. Cilj nije pucati na svakoga samo zato što imate priliku ili zato što ste bolji u tome. Svaka situacija treba imati smisao kroz roleplay. Nitko ne bi trebao biti doveden u situaciju da zbog konstantnih sukoba ne može razvijati svoj lik ili normalno uživati u igri.',
+          'Znajte prihvatiti i pobjedu i poraz. Gubitak opreme, novca ili drugih stvari dio je roleplaya i ne predstavlja razlog za ljutnju, svađu ili stvaranje OOC problema. Sve što izgubite može se ponovno steći kroz igru. Zapamtite da je cilj kvalitetna priča, a ne samo ishod pojedine situacije.',
+          'Ako primijetite da vas događaji iz igre previše pogađaju ili ih počinjete prenositi u stvarni život, napravite pauzu. Važno je razlikovati In Character od Out of Character situacija. Na kraju dana, svi smo ovdje s istim ciljem: da zajedno stvaramo što bolji roleplay i da se pritom dobro zabavimo.'
+        ]
+      },
+      {
+        title: 'Poštovanje',
+        body: [
+          'Poštovanje je jedan od temelja Onix Roleplay zajednice. Od svakog igrača očekujemo pristojnu komunikaciju, zrelo ponašanje i međusobno uvažavanje u svakoj situaciji. Bez obzira na neslaganja ili različita mišljenja, prema drugim igračima treba se odnositi s poštovanjem.',
+          'Vrijeđanje, provociranje, trolanje, omalovažavanje, ismijavanje ili bilo koji drugi oblik toksičnog ponašanja nije ono što želimo graditi na našem serveru. Takvo ponašanje narušava atmosferu i iskustvo svih igrača.',
+          'Budite ljubazni, saslušajte drugu stranu prije nego što iznesete svoje mišljenje i pokušajte svaku situaciju riješiti mirno i razumno. Nekada je dovoljno odvojiti nekoliko sekundi i razmisliti prije nego što nešto napišete ili kažete. Time se mogu izbjeći nepotrebni sukobi i riječi zbog kojih biste kasnije mogli požaliti.',
+          'Nemojte prekidati druge dok govore, ulaziti u besmislene rasprave niti pokušavati poniziti ili ismijati nečije mišljenje ili prijedlog. Svaka ideja može doprinijeti razvoju servera, a upravo zahvaljujući igračima koji žele pomoći zajednica napreduje.',
+          'Želimo da Onix bude mjesto na kojem će se svaki igrač osjećati dobrodošlo i poštovano. Zato od svih očekujemo isti nivo kulture, međusobnog uvažavanja i odgovornosti prema zajednici koju zajedno gradimo.'
+        ]
+      },
+      {
+        title: 'Roleplay',
+        quote: 'Roleplay je ispred ruleplaya.',
+        body: [
+          'Na Onix Roleplayu najvažniji je kvalitetan i smislen roleplay. Svaka situacija trebala bi biti usmjerena na stvaranje dobre priče i ugodnog iskustva za sve sudionike, a ne isključivo na pobjedu ili ostvarivanje osobne koristi.',
+          'Poštujte različite stilove roleplaya. Svaki igrač gradi svoj karakter na svoj način i zato nije u redu suditi nekoga prema njegovom načinu igre, prijašnjim karakterima ili OOC reputaciji. Ono što je važno jest ono što vaš lik vidi i doživljava unutar igre.',
+          'Posebno vas potičemo da pomognete novim igračima u njihovim prvim koracima. Svatko je jednom bio početnik, a nekoliko korisnih savjeta ili malo strpljenja može napraviti veliku razliku. Kvalitetna zajednica gradi se tako što zajedno pomažemo jedni drugima i podižemo razinu roleplaya.',
+          'Dok ste u igri, uvijek ostanite u ulozi svog karaktera. Nemojte ignorirati pokušaje drugih igrača da ostvare roleplay s vama i trudite se da svaka interakcija ima smisla i doprinosi priči.',
+          'Vaš karakter treba reagirati realistično na situacije u kojima se nalazi. Strah za vlastiti život i živote ljudi do kojih mu je stalo mora biti prisutan. Ako ste brojčano nadjačani, zarobljeni ili stavljeni u situaciju iz koje realno ne možete izaći, očekuje se da će vaš lik to prepoznati i ponašati se u skladu s okolnostima. Cilj nije uvijek pobijediti, već odigrati kvalitetnu i uvjerljivu priču.',
+          'Na našem serveru roleplay uvijek ima prednost nad pravilima. Pravila postoje kako bi zaštitila kvalitetu roleplaya, a ne kako bi se koristila za traženje rupa ili ostvarivanje prednosti. Namjerno prilagođavanje ili izvrćanje pravila u svoju korist, kao i stavljanje pravila ispred kvalitetnog RP-a, nije u duhu Onix Roleplaya i neće biti prihvatljivo.',
+          'Od svakog igrača očekujemo da svojim ponašanjem doprinosi stvaranju ozbiljnog, realističnog i ugodnog okruženja. Kada svi razmišljamo o kvaliteti priče, a ne samo o ishodu situacije, tada nastaje roleplay u kojem svi mogu uživati.',
+          'Nemojte koristiti pravila kao način da ostvarite prednost u roleplay situacijama ili kako biste pod svaku cijenu izašli kao pobjednik. Na Onix Roleplay serveru uvijek vrijedi jedno pravilo: roleplay je ispred ruleplaya. Pravila postoje kako bi podržala kvalitetan RP, a ne da bi se koristila protiv njega.',
+          'Ako vas drugi igrač ili službena osoba pretresa, dužni ste predati sve predmete i oružje koje vaš lik posjeduje u inventaru. Nije dopušteno proglašavati predmete "nevidljivima", skrivati ih u izmišljenim mjestima ili naknadno tvrditi da se zapravo nisu nalazili kod vašeg lika.',
+          'Bez obzira na to kako vam se neka situacija činila, potrudite se da svaki roleplay privedete kraju. Neće svaka scena biti savršena, ali kvalitetno završena situacija uvijek je bolja od prekidanja ili stvaranja OOC rasprava usred roleplaya.',
+          'Ako nakon završetka roleplaya smatrate da je došlo do kršenja pravila ili ozbiljne pogreške, nemojte to rješavati tijekom same situacije. Završite roleplay na ispravan način, a zatim otvorite ticket i obratite se administraciji. Na taj način čuvamo kvalitetu roleplaya i omogućujemo da se svaka prijava riješi objektivno i bez narušavanja iskustva ostalih igrača.'
+        ]
+      }
+    ],
+    close: [
+      'Ako se ne slažete s temeljnim vrijednostima koje čine Onix Roleplay i niste spremni pridržavati ih se, onda ovaj server vjerojatno nije pravo mjesto za vas.',
+      'Naš cilj nije okupiti najveći broj igrača, već izgraditi zajednicu u kojoj se poštuju pravila, cijeni kvalitetan roleplay i međusobno uvažavanje. Upravo zato od svakog člana očekujemo da ove vrijednosti prihvati i primjenjuje u svakodnevnoj igri.',
+      'Hvala svima koji svojim ponašanjem doprinose razvoju zajednice i pomažu da Onix Roleplay bude mjesto na koje se igrači uvijek rado vraćaju.'
+    ]
+  },
+  {
     menu: 'Fail RP',
     title: 'FAIL RP',
     lead: 'Ovo pravilo će biti strogo kažnjivo.',
@@ -109,6 +164,8 @@ window.PRAVILA = [
     zonesTitle: 'Safe zone na serveru su:',
     zones: [
       'PD',
+      'SUD'
+  
       'Bolnica',
       'Sheriff stanica',
       'Glavna garaža',
