@@ -627,7 +627,7 @@
 <body class="gate">
     <div class="stage">
         <video id="intro" playsinline preload="auto" poster="assets/poster.png">
-            <source src="assets/intro.mp4?v=3" type="video/mp4" />
+            <source src="assets/intro.mp4?v=4" type="video/mp4" />
         </video>
         <div class="vignette"></div>
         <div class="scan"></div>
@@ -665,11 +665,11 @@
     </div>
     <div class="soundwrap">
         <button type="button" class="sound on" id="soundBtn">Muzika · uklj</button>
-        <p class="credit">Covert Affair — Kevin MacLeod</p>
+        <p class="credit">Night on the Docks — Kevin MacLeod</p>
     </div>
-    <audio id="bgm" src="assets/ambient.mp3?v=3" loop preload="auto"></audio>
+    <audio id="bgm" src="assets/ambient.mp3?v=4" loop preload="auto" playsinline></audio>
 
-    <script src="pravila.js?v=3"></script>
+    <script src="pravila.js?v=4"></script>
     <script>
         const video = document.getElementById('intro');
         const body = document.body;
@@ -775,15 +775,16 @@
         }
 
         function primeBgm() {
+            bgm.muted = false;
             bgm.volume = 0;
-            bgm.play().catch(() => {});
+            return bgm.play().catch(() => {});
         }
 
         function startAmbience() {
             if (!musicOn) return;
-            bgm.play().then(() => fadeBgm(0.2, 1800)).catch(() => {
-                musicOn = false;
-                setMusicLabel();
+            const go = bgm.paused ? bgm.play() : Promise.resolve();
+            go.then(() => fadeBgm(0.22, 1200)).catch(() => {
+                soundBtn.textContent = 'Muzika · klikni';
             });
         }
 
@@ -791,10 +792,10 @@
             musicOn = !musicOn;
             setMusicLabel();
             if (musicOn) {
-                bgm.play().then(() => fadeBgm(0.2, 600)).catch(() => {});
+                bgm.play().then(() => fadeBgm(0.22, 500)).catch(() => {});
             } else {
-                fadeBgm(0, 400);
-                setTimeout(() => { if (!musicOn) bgm.pause(); }, 420);
+                fadeBgm(0, 350);
+                setTimeout(() => { if (!musicOn) bgm.pause(); }, 380);
             }
         }
 
@@ -812,18 +813,21 @@
             show(0);
         }
 
-        async function enter() {
+        function enter() {
             if (started) return;
             started = true;
             body.classList.add('is-playing');
+            primeBgm();
             video.currentTime = 0;
             video.muted = false;
             video.volume = 0.9;
-            try { await video.play(); } catch (e) {
-                video.muted = true;
-                await video.play().catch(freezeEnd);
+            const playIntro = video.play();
+            if (playIntro && playIntro.catch) {
+                playIntro.catch(() => {
+                    video.muted = true;
+                    video.play().catch(freezeEnd);
+                });
             }
-            primeBgm();
         }
 
         function show(i) {
@@ -840,7 +844,10 @@
 
         video.addEventListener('ended', freezeEnd);
         window.addEventListener('pointerdown', () => {
-            if (!body.classList.contains('done')) enter();
+            if (!body.classList.contains('done')) {
+                primeBgm();
+                enter();
+            }
         });
         window.addEventListener('keydown', (e) => {
             if (!body.classList.contains('done')) {
