@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="bs">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Onix Roleplay — Pravila</title>
+    <meta name="theme-color" content="#00b4ff" />
+    <meta name="description" content="Službena knjiga pravila — Onix Roleplay." />
+    <meta property="og:title" content="Onix Roleplay — Pravila" />
+    <meta property="og:description" content="Uđi. Pogledaj. Poštuj pravila." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/poster.png" />
+    <link rel="icon" href="assets/poster.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Outfit:wght@300;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --void: #050a1a;
+            --cyan: #00b4ff;
+            --cyan-2: #60e0ff;
+            --gold: #ffd700;
+            --paper: #f4fbff;
+            --hit: #ffd700;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: var(--void);
+            color: var(--paper);
+            font-family: Outfit, system-ui, sans-serif;
+        }
+
+        body.gate {
+            overflow: hidden;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        body.done { overflow: hidden; cursor: default; }
+
+        .stage {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: 0;
+        }
+
+        video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: #000;
+        }
+
+        body.done video { filter: brightness(0.38) saturate(0.85); }
+
+        .vignette, .grain, .scan {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .vignette {
+            background:
+                radial-gradient(ellipse at 50% 42%, transparent 18%, rgba(0, 0, 0, 0.28) 58%, rgba(0, 0, 0, 0.82) 100%),
+                linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, transparent 18%, transparent 72%, rgba(0, 0, 0, 0.78) 100%);
+        }
+
+        .grain {
+            opacity: 0.14;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+        }
+
+        .scan {
+            opacity: 0.08;
+            background: repeating-linear-gradient(to bottom, rgba(62, 203, 255, 0.18) 0, rgba(62, 203, 255, 0.18) 1px, transparent 1px, transparent 3px);
+        }
+
+        .letterbox {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 7vh;
+            background: #000;
+            z-index: 4;
+            pointer-events: none;
+        }
+        .letterbox.top { top: 0; }
+        .letterbox.bot { bottom: 0; }
+        body.done .letterbox { display: none; }
+
+        .hud {
+            position: absolute;
+            inset: 0;
+            z-index: 5;
+            display: grid;
+            place-items: end center;
+            padding: 0 6vw 11vh;
+        }
+
+        .panel { text-align: center; max-width: 920px; }
+
+        .stars {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+        .stars span {
+            width: 9px;
+            height: 9px;
+            background: var(--gold);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            filter: drop-shadow(0 0 8px rgba(240, 197, 58, 0.85));
+        }
+
+        .kicker {
+            font-size: 11px;
+            letter-spacing: 0.62em;
+            text-transform: uppercase;
+            color: var(--cyan);
+            text-shadow: 0 0 18px rgba(62, 203, 255, 0.55);
+            margin-bottom: 10px;
+        }
+
+        .hud h1 {
+            font-family: Cinzel, serif;
+            font-weight: 700;
+            font-size: clamp(42px, 8vw, 92px);
+            letter-spacing: 0.28em;
+            line-height: 0.92;
+            text-shadow: 0 0 28px rgba(0, 180, 255, 0.45), 0 18px 40px rgba(0, 0, 0, 0.8);
+        }
+
+        .rule {
+            width: 120px;
+            height: 1px;
+            margin: 22px auto 18px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .hint {
+            font-weight: 300;
+            font-size: 13px;
+            letter-spacing: 0.42em;
+            text-transform: uppercase;
+            color: rgba(234, 246, 255, 0.72);
+        }
+
+        .pulse {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 22px auto 0;
+            background: var(--gold);
+            animation: beat 1.8s ease-out infinite;
+        }
+
+        @keyframes beat {
+            0% { box-shadow: 0 0 0 0 rgba(240, 197, 58, 0.65); }
+            70% { box-shadow: 0 0 0 18px rgba(240, 197, 58, 0); }
+        }
+
+        body.is-playing .hud,
+        body.done .hud { display: none; }
+
+        .book {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 8;
+            grid-template-columns: 220px minmax(0, 1fr) minmax(280px, 38vw);
+            background: linear-gradient(90deg, rgba(5, 10, 26, 0.96) 0%, rgba(5, 10, 26, 0.82) 52%, rgba(5, 10, 26, 0.4) 100%);
+        }
+
+        body.done .book { display: grid; }
+
+        nav {
+            border-right: 1px solid rgba(62, 203, 255, 0.12);
+            padding: 28px 16px;
+            overflow: auto;
+        }
+
+        .brand {
+            font-size: 10px;
+            letter-spacing: 0.42em;
+            text-transform: uppercase;
+            color: var(--cyan);
+            padding: 0 12px 22px;
+        }
+
+        nav button {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            width: 100%;
+            background: transparent;
+            border: 0;
+            border-left: 2px solid transparent;
+            color: rgba(234, 246, 255, 0.55);
+            font: 600 13px Outfit, sans-serif;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            text-align: left;
+            padding: 12px;
+            cursor: pointer;
+        }
+
+        nav button .n {
+            color: rgba(240, 197, 58, 0.7);
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            min-width: 22px;
+        }
+
+        nav button:hover { color: #fff; }
+        nav button.active {
+            color: #fff;
+            border-left-color: var(--cyan);
+            background: linear-gradient(90deg, rgba(0, 180, 255, 0.18), transparent);
+        }
+
+        .page {
+            position: relative;
+            overflow: auto;
+            padding: 7vh 4vw 10vh 5vw;
+        }
+
+        .mark {
+            position: relative;
+            overflow: hidden;
+            pointer-events: none;
+            background:
+                repeating-linear-gradient(
+                    -18deg,
+                    transparent 0 22px,
+                    rgba(0, 180, 255, 0.06) 22px 24px
+                ),
+                radial-gradient(ellipse at 80% 20%, rgba(0, 180, 255, 0.28), transparent 50%),
+                linear-gradient(180deg, rgba(2, 6, 12, 0.1), rgba(2, 6, 12, 0.55));
+        }
+
+        .mark-slash {
+            position: absolute;
+            left: 18%;
+            top: -10%;
+            width: 3px;
+            height: 130%;
+            background: linear-gradient(180deg, transparent, var(--cyan), transparent);
+            transform: rotate(-18deg);
+            box-shadow: 0 0 28px rgba(0, 180, 255, 0.7);
+        }
+
+        .mark-no {
+            position: absolute;
+            left: 8%;
+            top: 6%;
+            font-family: Cinzel, serif;
+            font-size: clamp(64px, 12vw, 140px);
+            line-height: 0.8;
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(255, 215, 0, 0.7);
+            letter-spacing: -0.04em;
+        }
+
+        .mark-word {
+            position: absolute;
+            right: -4%;
+            top: 50%;
+            transform: translateY(-50%);
+            writing-mode: vertical-rl;
+            font-family: Cinzel, serif;
+            font-weight: 700;
+            font-size: clamp(72px, 14vw, 168px);
+            letter-spacing: 0.12em;
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(0, 180, 255, 0.85);
+            text-shadow: 0 0 48px rgba(0, 180, 255, 0.45);
+            white-space: nowrap;
+        }
+
+        article { display: none; max-width: 860px; animation: rise 0.55s ease; }
+        article.active { display: block; }
+
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: none; }
+        }
+
+        .idx {
+            font-size: 11px;
+            letter-spacing: 0.5em;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        article h2 {
+            font-family: Cinzel, serif;
+            font-size: clamp(48px, 9vw, 108px);
+            line-height: 0.88;
+            letter-spacing: 0.08em;
+            background: linear-gradient(180deg, var(--cyan-2), var(--cyan));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            filter: drop-shadow(0 0 22px rgba(0, 180, 255, 0.55));
+            margin-bottom: 14px;
+        }
+
+        .lead {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(234, 246, 255, 0.82);
+            margin-bottom: 28px;
+            max-width: 640px;
+        }
+
+        ul {
+            list-style: none;
+            display: grid;
+            gap: 14px;
+        }
+
+        li {
+            position: relative;
+            padding: 16px 18px 16px 28px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-left: 3px solid var(--cyan);
+            font-size: 16px;
+            line-height: 1.55;
+            letter-spacing: 0.02em;
+        }
+
+        .hit {
+            color: var(--gold);
+            font-weight: 700;
+            font-style: normal;
+            letter-spacing: 0.04em;
+            text-shadow: 0 0 18px rgba(255, 215, 0, 0.45);
+        }
+
+        .zones {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .zones span {
+            padding: 12px 14px;
+            border: 1px solid rgba(62, 203, 255, 0.2);
+            color: var(--cyan);
+            letter-spacing: 0.18em;
+            font-size: 12px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .codes {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .codes span {
+            display: grid;
+            place-items: center;
+            min-height: 64px;
+            font-family: Cinzel, serif;
+            font-size: 22px;
+            letter-spacing: 0.12em;
+            border: 1px solid rgba(0, 180, 255, 0.4);
+            color: #fff;
+            background: rgba(0, 180, 255, 0.1);
+            text-shadow: 0 0 12px rgba(0, 180, 255, 0.45);
+        }
+
+        .foot {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            margin-top: 36px;
+            max-width: 860px;
+        }
+
+        .foot button {
+            background: transparent;
+            border: 1px solid rgba(240, 197, 58, 0.35);
+            color: var(--gold);
+            padding: 12px 18px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            font: 600 11px Outfit, sans-serif;
+            cursor: pointer;
+        }
+
+        .foot button:hover { background: rgba(240, 197, 58, 0.1); }
+
+        @media (max-width: 860px) {
+            .book { grid-template-columns: 1fr; }
+            nav {
+                display: flex;
+                gap: 4px;
+                overflow: auto;
+                border-right: 0;
+                border-bottom: 1px solid rgba(62, 203, 255, 0.12);
+                padding: 12px;
+            }
+            .brand { display: none; }
+            nav button { flex: 0 0 auto; width: auto; border-left: 0; border-bottom: 2px solid transparent; }
+            nav button.active { border-bottom-color: var(--cyan); }
+            .codes { grid-template-columns: repeat(2, 1fr); }
+            .page { padding: 4vh 6vw 8vh; }
+            .mark { display: none; }
+        }
+    </style>
+</head>
+<body class="gate">
+    <div class="stage">
+        <video id="intro" playsinline preload="auto" poster="assets/poster.png">
+            <source src="assets/intro.mp4" type="video/mp4" />
+        </video>
+        <div class="vignette"></div>
+        <div class="scan"></div>
+        <div class="grain"></div>
+        <div class="letterbox top"></div>
+        <div class="letterbox bot"></div>
+        <div class="hud">
+            <div class="panel">
+                <div class="stars" aria-hidden="true"><span></span><span></span><span></span></div>
+                <p class="kicker">Onix Roleplay</p>
+                <h1>PRAVILA</h1>
+                <div class="rule"></div>
+                <p class="hint">Pritisni da uđeš</p>
+                <div class="pulse"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="book" id="book">
+        <nav id="nav">
+            <p class="brand">Knjiga pravila</p>
+        </nav>
+        <div class="page">
+            <div id="pages"></div>
+            <div class="foot">
+                <button type="button" id="prev">← Nazad</button>
+                <button type="button" id="next">Dalje →</button>
+            </div>
+        </div>
+
+        <aside class="mark" aria-hidden="true">
+            <div class="mark-slash"></div>
+            <p class="mark-no" id="markNo">01</p>
+            <p class="mark-word" id="markWord">FAIL RP</p>
+        </aside>
+    </div>
+
+    <script src="pravila.js"></script>
+    <script>
+        const video = document.getElementById('intro');
+        const body = document.body;
+        const nav = document.getElementById('nav');
+        const pages = document.getElementById('pages');
+        const rules = window.PRAVILA || [];
+        let articles = [];
+        let buttons = [];
+        let started = false;
+        let page = 0;
+
+        function gold(text) {
+            return String(text || '').replace(/\*\*(.+?)\*\*/g, '<span class="hit">$1</span>');
+        }
+
+        function pad(n) {
+            return String(n).padStart(2, '0');
+        }
+
+        function build() {
+            const total = rules.length;
+            rules.forEach((rule, i) => {
+                const btn = document.createElement('button');
+                btn.dataset.go = String(i);
+                btn.innerHTML = '<span class="n">' + pad(i + 1) + '</span> ' + rule.menu;
+                if (i === 0) btn.classList.add('active');
+                nav.appendChild(btn);
+
+                const art = document.createElement('article');
+                if (i === 0) art.classList.add('active');
+                let html = '<p class="idx">' + pad(i + 1) + ' / ' + pad(total) + '</p>';
+                html += '<h2>' + rule.title + '</h2>';
+                if (rule.lead) html += '<p class="lead">' + gold(rule.lead) + '</p>';
+                if (rule.items && rule.items.length) {
+                    html += '<ul>' + rule.items.map((item) => '<li>' + gold(item) + '</li>').join('') + '</ul>';
+                }
+                if (rule.zones && rule.zones.length) {
+                    html += '<p class="lead" style="margin:28px 0 12px">' + (rule.zonesTitle || '') + '</p>';
+                    html += '<div class="zones">' + rule.zones.map((z) => '<span>' + z + '</span>').join('') + '</div>';
+                }
+                if (rule.codes && rule.codes.length) {
+                    html += '<p class="lead">' + (rule.codesTitle || '') + '</p>';
+                    html += '<div class="codes">' + rule.codes.map((c) => '<span>' + c + '</span>').join('') + '</div>';
+                }
+                art.innerHTML = html;
+                pages.appendChild(art);
+            });
+            articles = [...document.querySelectorAll('article')];
+            buttons = [...nav.querySelectorAll('button')];
+            buttons.forEach((btn) => btn.addEventListener('click', () => show(Number(btn.dataset.go))));
+        }
+
+        video.muted = true;
+        build();
+
+        function freezeEnd() {
+            try {
+                video.pause();
+                video.currentTime = Math.max(0, video.duration - 0.08);
+            } catch (e) {}
+            body.classList.remove('is-playing', 'gate');
+            body.classList.add('done');
+            show(0);
+        }
+
+        async function enter() {
+            if (started) return;
+            started = true;
+            body.classList.add('is-playing');
+            video.currentTime = 0;
+            video.muted = false;
+            video.volume = 0.9;
+            try { await video.play(); } catch (e) {
+                video.muted = true;
+                await video.play().catch(freezeEnd);
+            }
+        }
+
+        function show(i) {
+            if (!articles.length) return;
+            page = (i + articles.length) % articles.length;
+            articles.forEach((el, n) => el.classList.toggle('active', n === page));
+            buttons.forEach((el, n) => el.classList.toggle('active', n === page));
+            document.getElementById('markNo').textContent = pad(page + 1);
+            document.getElementById('markWord').textContent = rules[page].title;
+            document.querySelector('.page').scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        video.addEventListener('ended', freezeEnd);
+        window.addEventListener('pointerdown', () => {
+            if (!body.classList.contains('done')) enter();
+        });
+        window.addEventListener('keydown', (e) => {
+            if (!body.classList.contains('done')) {
+                if (e.code === 'Space' || e.code === 'Enter') enter();
+                return;
+            }
+            if (e.code === 'ArrowRight') show(page + 1);
+            if (e.code === 'ArrowLeft') show(page - 1);
+        });
+        document.getElementById('prev').addEventListener('click', () => show(page - 1));
+        document.getElementById('next').addEventListener('click', () => show(page + 1));
+    </script>
+</body>
+</html>
