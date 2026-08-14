@@ -30,7 +30,7 @@ window.PRAVILA = [
       {
         title: 'Fair Play',
         body: [
-          'Na Onix Roleplayu od svakog igrača očekujemo da se vodi načelima poštene igre, kako IC, tako i OOC. Poštovanje prema drugim igračima, korektan odnos, timski duh i međusobno uvažavanje temelj su zajednice koju želimo graditi. Na ovom serveru svi su jednaki i za pravila ne postoje iznimke.',
+          'Na Onix Roleplayu od svakog igrača očekujemo da se vodi načelima poštene igre, kako **IC**, tako i **OOC**. Poštovanje prema drugim igračima, korektan odnos, timski duh i međusobno uvažavanje temelj su zajednice koju želimo graditi. Na ovom serveru svi su jednaki i za pravila ne postoje iznimke.',
           'Poštivanje pisanih pravila jednako je važno kao i poštivanje onih nepisanih: tolerancije, solidarnosti, međusobnog pomaganja i stvaranja pozitivne atmosfere. Kvalitetan roleplay uvijek će imati prednost nad željom za pobjedom pod svaku cijenu.',
           'Nemojte gledati FiveM isključivo kroz pucnjavu i PvP. Cilj nije pucati na svakoga samo zato što imate priliku ili zato što ste bolji u tome. Svaka situacija treba imati smisao kroz roleplay. Nitko ne bi trebao biti doveden u situaciju da zbog konstantnih sukoba ne može razvijati svoj lik ili normalno uživati u igri.',
           'Znajte prihvatiti i pobjedu i poraz. Gubitak opreme, novca ili drugih stvari dio je roleplaya i ne predstavlja razlog za ljutnju, svađu ili stvaranje OOC problema. Sve što izgubite može se ponovno steći kroz igru. Zapamtite da je cilj kvalitetna priča, a ne samo ishod pojedine situacije.',
@@ -58,7 +58,7 @@ window.PRAVILA = [
           'Vaš karakter treba reagirati realistično na situacije u kojima se nalazi. Strah za vlastiti život i živote ljudi do kojih mu je stalo mora biti prisutan. Ako ste brojčano nadjačani, zarobljeni ili stavljeni u situaciju iz koje realno ne možete izaći, očekuje se da će vaš lik to prepoznati i ponašati se u skladu s okolnostima. Cilj nije uvijek pobijediti, već odigrati kvalitetnu i uvjerljivu priču.',
           'Na našem serveru roleplay uvijek ima prednost nad pravilima. Pravila postoje kako bi zaštitila kvalitetu roleplaya, a ne kako bi se koristila za traženje rupa ili ostvarivanje prednosti. Namjerno prilagođavanje ili izvrćanje pravila u svoju korist, kao i stavljanje pravila ispred kvalitetnog RP-a, nije u duhu Onix Roleplaya i neće biti prihvatljivo.',
           'Od svakog igrača očekujemo da svojim ponašanjem doprinosi stvaranju ozbiljnog, realističnog i ugodnog okruženja. Kada svi razmišljamo o kvaliteti priče, a ne samo o ishodu situacije, tada nastaje roleplay u kojem svi mogu uživati.',
-          'Nemojte koristiti pravila kao način da ostvarite prednost u roleplay situacijama ili kako biste pod svaku cijenu izašli kao pobjednik. Na Onix Roleplay serveru uvijek vrijedi jedno pravilo: roleplay je ispred ruleplaya. Pravila postoje kako bi podržala kvalitetan RP, a ne da bi se koristila protiv njega.',
+          'Nemojte koristiti pravila kao način da ostvarite prednost u roleplay situacijama ili kako biste pod svaku cijenu izašli kao pobjednik. Na Onix Roleplay serveru uvijek vrijedi jedno pravilo: **roleplay je ispred ruleplaya**. Pravila postoje kako bi podržala kvalitetan RP, a ne da bi se koristila protiv njega.',
           'Ako vas drugi igrač ili službena osoba pretresa, dužni ste predati sve predmete i oružje koje vaš lik posjeduje u inventaru. Nije dopušteno proglašavati predmete "nevidljivima", skrivati ih u izmišljenim mjestima ili naknadno tvrditi da se zapravo nisu nalazili kod vašeg lika.',
           'Bez obzira na to kako vam se neka situacija činila, potrudite se da svaki roleplay privedete kraju. Neće svaka scena biti savršena, ali kvalitetno završena situacija uvijek je bolja od prekidanja ili stvaranja OOC rasprava usred roleplaya.',
           'Ako nakon završetka roleplaya smatrate da je došlo do kršenja pravila ili ozbiljne pogreške, nemojte to rješavati tijekom same situacije. Završite roleplay na ispravan način, a zatim otvorite ticket i obratite se administraciji. Na taj način čuvamo kvalitetu roleplaya i omogućujemo da se svaka prijava riješi objektivno i bez narušavanja iskustva ostalih igrača.'
@@ -164,8 +164,7 @@ window.PRAVILA = [
     zonesTitle: 'Safe zone na serveru su:',
     zones: [
       'PD',
-      'SUD'
-  
+      'SUD',
       'Bolnica',
       'Sheriff stanica',
       'Glavna garaža',

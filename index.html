@@ -133,10 +133,25 @@
         .hud h1 {
             font-family: Cinzel, serif;
             font-weight: 700;
-            font-size: clamp(42px, 8vw, 92px);
-            letter-spacing: 0.28em;
+            font-size: clamp(52px, 10vw, 108px);
+            letter-spacing: 0.2em;
             line-height: 0.92;
-            text-shadow: 0 0 28px rgba(0, 180, 255, 0.45), 0 18px 40px rgba(0, 0, 0, 0.8);
+            background-image: linear-gradient(
+                110deg,
+                #00b4ff 0%,
+                #60e0ff 28%,
+                #ffe566 46%,
+                #ffd700 50%,
+                #ffe566 54%,
+                #60e0ff 72%,
+                #00b4ff 100%
+            );
+            background-size: 240% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: onixShine 5.2s ease-in-out infinite;
+            filter: drop-shadow(0 0 22px rgba(0, 180, 255, 0.7));
         }
 
         .rule {
@@ -331,6 +346,52 @@
         article.manifest h2 {
             font-size: clamp(56px, 10vw, 120px);
             margin-bottom: 8px;
+            background-image: linear-gradient(
+                110deg,
+                #00b4ff 0%,
+                #60e0ff 28%,
+                #ffe566 46%,
+                #ffd700 50%,
+                #ffe566 54%,
+                #60e0ff 72%,
+                #00b4ff 100%
+            );
+            background-size: 240% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: onixShine 5.2s ease-in-out infinite;
+            filter: drop-shadow(0 0 18px rgba(0, 180, 255, 0.7));
+        }
+
+        @keyframes onixShine {
+            0% {
+                background-position: 100% 50%;
+                filter: drop-shadow(0 0 16px rgba(0, 180, 255, 0.75));
+            }
+            50% {
+                background-position: 0% 50%;
+                filter: drop-shadow(0 0 26px rgba(255, 215, 0, 0.7));
+            }
+            100% {
+                background-position: 100% 50%;
+                filter: drop-shadow(0 0 16px rgba(0, 180, 255, 0.75));
+            }
+        }
+
+        .mark-word.brand {
+            animation: onixStroke 5.2s ease-in-out infinite;
+        }
+
+        @keyframes onixStroke {
+            0%, 100% {
+                -webkit-text-stroke-color: rgba(0, 180, 255, 0.9);
+                text-shadow: 0 0 48px rgba(0, 180, 255, 0.45);
+            }
+            50% {
+                -webkit-text-stroke-color: rgba(255, 215, 0, 0.92);
+                text-shadow: 0 0 48px rgba(255, 215, 0, 0.4);
+            }
         }
 
         .badge {
@@ -363,18 +424,36 @@
         }
 
         .chapter {
-            margin-top: 42px;
-            padding-top: 8px;
+            margin-top: 48px;
+            padding-top: 22px;
+            border-top: 1px solid rgba(255, 215, 0, 0.14);
         }
 
         .chapter h3 {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
             font-family: Cinzel, serif;
-            font-size: 28px;
-            letter-spacing: 0.18em;
+            font-size: 26px;
+            letter-spacing: 0.16em;
             text-transform: uppercase;
             color: var(--gold);
-            margin-bottom: 16px;
+            margin-bottom: 18px;
             text-shadow: 0 0 18px rgba(255, 215, 0, 0.25);
+        }
+
+        .chapter h3 .rom {
+            font-size: 12px;
+            letter-spacing: 0.28em;
+            color: var(--cyan);
+            min-width: 1.6em;
+        }
+
+        .chapter h3::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255, 215, 0, 0.4), transparent);
         }
 
         .pull {
@@ -404,13 +483,19 @@
 
         .verdict p:last-child { margin: 0; color: var(--gold); }
 
-        .sound {
+        .soundwrap {
             position: fixed;
             right: 22px;
-            bottom: 22px;
+            bottom: 18px;
             z-index: 20;
             display: none;
-            background: rgba(5, 10, 26, 0.72);
+            text-align: right;
+        }
+
+        body.done .soundwrap { display: block; }
+
+        .sound {
+            background: rgba(5, 10, 26, 0.78);
             border: 1px solid rgba(255, 215, 0, 0.4);
             color: var(--gold);
             padding: 10px 14px;
@@ -420,7 +505,14 @@
             cursor: pointer;
         }
 
-        body.done .sound { display: block; }
+        .sound.on { box-shadow: 0 0 18px rgba(255, 215, 0, 0.22); }
+
+        .credit {
+            margin-top: 7px;
+            font-size: 9px;
+            letter-spacing: 0.08em;
+            color: rgba(234, 246, 255, 0.32);
+        }
 
         nav button:nth-of-type(1) { margin-bottom: 8px; }
         nav button:nth-of-type(2) {
@@ -542,12 +634,11 @@
         <div class="letterbox bot"></div>
         <div class="hud">
             <div class="panel">
-                <div class="stars" aria-hidden="true"><span></span><span></span><span></span></div>
-                <p class="kicker">Onix Roleplay</p>
-                <h1>PRAVILA</h1>
+                <p class="kicker">Temeljne vrijednosti</p>
+                <h1>ONIX</h1>
+                <span class="badge">Medium Roleplay</span>
                 <div class="rule"></div>
                 <p class="hint">Pritisni da uđeš</p>
-                <div class="pulse"></div>
             </div>
         </div>
     </div>
@@ -570,7 +661,11 @@
             <p class="mark-word" id="markWord">ONIX</p>
         </aside>
     </div>
-    <button type="button" class="sound" id="soundBtn">Muzika · uklj</button>
+    <div class="soundwrap">
+        <button type="button" class="sound on" id="soundBtn">Muzika · uklj</button>
+        <p class="credit">Covert Affair — Kevin MacLeod</p>
+    </div>
+    <audio id="bgm" src="assets/ambient.mp3" loop preload="auto"></audio>
 
     <script src="pravila.js"></script>
     <script>
@@ -600,9 +695,10 @@
             html += '<div class="essay">';
             (rule.intro || []).forEach((p) => { html += '<p>' + gold(p) + '</p>'; });
             html += '</div>';
-            (rule.chapters || []).forEach((ch) => {
+            (rule.chapters || []).forEach((ch, n) => {
+                const rom = ['I', 'II', 'III', 'IV', 'V'][n] || String(n + 1);
                 html += '<section class="chapter">';
-                html += '<h3>' + ch.title + '</h3>';
+                html += '<h3><span class="rom">' + rom + '</span>' + ch.title + '</h3>';
                 if (ch.quote) html += '<p class="pull">“' + ch.quote + '”</p>';
                 html += '<div class="essay">';
                 (ch.body || []).forEach((p) => { html += '<p>' + gold(p) + '</p>'; });
@@ -654,60 +750,50 @@
             buttons.forEach((btn) => btn.addEventListener('click', () => show(Number(btn.dataset.go))));
         }
 
-        let amb = null;
+        const bgm = document.getElementById('bgm');
+        const soundBtn = document.getElementById('soundBtn');
+        let musicOn = true;
+        let fadeTimer = 0;
+
+        function setMusicLabel() {
+            soundBtn.textContent = musicOn ? 'Muzika · uklj' : 'Muzika · isklj';
+            soundBtn.classList.toggle('on', musicOn);
+        }
+
+        function fadeBgm(to, ms) {
+            const from = bgm.volume;
+            const start = performance.now();
+            cancelAnimationFrame(fadeTimer);
+            function tick(now) {
+                const p = Math.min(1, (now - start) / ms);
+                bgm.volume = from + (to - from) * p;
+                if (p < 1) fadeTimer = requestAnimationFrame(tick);
+            }
+            fadeTimer = requestAnimationFrame(tick);
+        }
+
+        function primeBgm() {
+            bgm.volume = 0;
+            bgm.play().catch(() => {});
+        }
 
         function startAmbience() {
-            if (amb) {
-                if (amb.ctx.state === 'suspended') amb.ctx.resume();
-                return;
-            }
-            const ctx = new (window.AudioContext || window.webkitAudioContext)();
-            const master = ctx.createGain();
-            master.gain.value = 0;
-            const filter = ctx.createBiquadFilter();
-            filter.type = 'lowpass';
-            filter.frequency.value = 720;
-            filter.Q.value = 0.7;
-            master.connect(filter);
-            filter.connect(ctx.destination);
-
-            function tone(freq, type, vol) {
-                const o = ctx.createOscillator();
-                const g = ctx.createGain();
-                o.type = type;
-                o.frequency.value = freq;
-                g.gain.value = vol;
-                o.connect(g);
-                g.connect(master);
-                o.start();
-            }
-            tone(55, 'sine', 0.28);
-            tone(82.4, 'sine', 0.14);
-            tone(110, 'triangle', 0.05);
-            tone(164.8, 'sine', 0.03);
-
-            const lfo = ctx.createOscillator();
-            const lfoG = ctx.createGain();
-            lfo.frequency.value = 0.05;
-            lfoG.gain.value = 90;
-            lfo.connect(lfoG);
-            lfoG.connect(filter.frequency);
-            lfo.start();
-
-            master.gain.linearRampToValueAtTime(0.09, ctx.currentTime + 2.4);
-            amb = { ctx, master, on: true };
-            document.getElementById('soundBtn').textContent = 'Muzika · uklj';
+            if (!musicOn) return;
+            bgm.play().then(() => fadeBgm(0.2, 1800)).catch(() => {
+                musicOn = false;
+                setMusicLabel();
+            });
         }
 
         function toggleAmbience() {
-            if (!amb) {
-                startAmbience();
-                return;
+            musicOn = !musicOn;
+            setMusicLabel();
+            if (musicOn) {
+                bgm.play().then(() => fadeBgm(0.2, 600)).catch(() => {});
+            } else {
+                fadeBgm(0, 400);
+                setTimeout(() => { if (!musicOn) bgm.pause(); }, 420);
             }
-            amb.on = !amb.on;
-            amb.master.gain.cancelScheduledValues(amb.ctx.currentTime);
-            amb.master.gain.linearRampToValueAtTime(amb.on ? 0.09 : 0, amb.ctx.currentTime + 0.35);
-            document.getElementById('soundBtn').textContent = amb.on ? 'Muzika · uklj' : 'Muzika · isklj';
         }
 
         video.muted = true;
@@ -735,6 +821,7 @@
                 video.muted = true;
                 await video.play().catch(freezeEnd);
             }
+            primeBgm();
         }
 
         function show(i) {
@@ -743,7 +830,9 @@
             articles.forEach((el, n) => el.classList.toggle('active', n === page));
             buttons.forEach((el, n) => el.classList.toggle('active', n === page));
             document.getElementById('markNo').textContent = pad(page + 1);
-            document.getElementById('markWord').textContent = rules[page].title;
+            const mark = document.getElementById('markWord');
+            mark.textContent = rules[page].title;
+            mark.classList.toggle('brand', rules[page].kind === 'uvod');
             document.querySelector('.page').scrollTo({ top: 0, behavior: 'smooth' });
         }
 
