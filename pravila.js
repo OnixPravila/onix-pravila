@@ -227,6 +227,168 @@ window.PRAVILA = [
     ]
   },
   {
+    kind: 'sekcija',
+    id: 'org',
+    menu: 'Organizacije',
+    title: 'ORGANIZACIJE',
+    kicker: 'Pravila organizacija',
+    chapters: [
+      {
+        title: 'Organizacija',
+        items: [
+          'Maksimalan broj članova je **10**.',
+          'Maksimalan broj vođa jedne organizacije je **2**.',
+          'Ako vođe odu na doživotnu ili budu permani, organizacija se gasi.',
+          'Za upad na ilegalne lokacije i na baze drugih organizacija, minimalan broj članova je **5**.',
+          'Korišćenje kriptovanog radija za vreme ilegalnih radnji je zabranjeno.'
+        ]
+      },
+      {
+        title: 'Kidnapovanje',
+        items: [
+          'Za kidnapovanje mora postojati **dobar RP razlog**.',
+          'Ne smete kidnapovati igrača samo da bi ga opljačkali. Pljačka se vrši na mestu gde ste zatekli igrača i dužni ste da ga pustite nakon pljačke. Vatrogasce i bolničare ne smete kidnapovati ako su u uniformi.',
+          'Taoca ne smete raniti ako sarađuje.',
+          'Ako se policija umeša, morate stupiti u pregovore na mestu na kom je RP sa policijom započeo.',
+          'Imate pravo na **tri uslova**. Dužni ste da ispoštujete uslov koji policija traži od vas.',
+          'Policija ima pravo na **jedan uslov** po jednom taocu. Mafija ima dodatni uslov na svakog dodatnog taoca.',
+          'Ne smete tražiti nerealne uslove kao ni uslove kojim kršite **RP2WIN**.',
+          'Taoca možete držati maksimum **60 minuta** ako ste u pregovorima sa policijom, a **24h** ako niste.',
+          'Taoc ne sme biti pregovarač. Takođe ne smete imati lažnog taoca (prijatelja, člana organizacije, dogovorenu talačku situaciju).',
+          'Pregovarač ne sme biti povređen.'
+        ]
+      },
+      {
+        title: 'Talačka situacija',
+        items: [
+          'Talačkom situacijom podrazumeva se samo situacija kada taocu držite pištolj na glavi (animacija) ili uperen pištolj sa distance manje od **jednog metra**.',
+          'Talačka situacija se ne sme lažirati.',
+          'Ne smete lagati da imate taoca ukoliko ga nemate.',
+          'Pregovori na talačkoj situaciji su obavezni ako se umeša policija ili organizacija čijeg ste člana kidnapovali.',
+          'Možete tražiti otkup od policije za bilo kog igrača kog ste kidnapovali ili od organizacije kojoj igrač pripada.',
+          'Od policije možete tražiti **10.000** za civila, **15.000** za policajca, **20.000** za vođu jedinice i **30.000** za načelnika.',
+          'Od organizacije možete tražiti otkup u iznosu od **10.000** za člana i **20.000** za šefa.',
+          'Ako je policajac kidnapovan zbog otkupa, policijske stvari mu ne smete dirati, a on iste ne sme koristiti dok se RP ne završi.',
+          'Ako je policajac kidnapovan zbog pljačke objekta, takođe, policijske stvari mu ne smete dirati, ali imate pravo na **jedan uslov više**.'
+        ]
+      },
+      {
+        title: 'Pljačka igrača',
+        items: [
+          'Jednog igrača možete opljačkati jednom u **12 sati**.',
+          'Od igrača kog pljačkate smete oduzeti sve osim ključeva, hrane i vode.',
+          'Pljačka igrača se vrši na mestu na kom je igrač zatečen, ne smete ga voditi sa sobom.',
+          'Pljačku igrača možete vršiti samo kada je na serveru **noć**.',
+          'Ako pljačkate policajca, smete mu oduzeti sve ilegalne stvari (ako ih ima kod sebe), novac, komunikaciju, municiju, spajkove i pancir. Sve ostale policijske stvari policajcu ne smete oduzimati.',
+          'Možete igraču ukrasti kreditnu karticu, te istu možete koristiti ukoliko saznate PIN kartice.',
+          'Vatrogasce i bolničare ne smete pljačkati ako su u uniformi.',
+          'Ne smete pozivati mehaničare, bolničare, vatrogasce i policiju da vam dođu pomoći kako biste ih opljačkali.',
+          'Ne smete pljačkati igrača ako ste ga našli bez svesti, a na njegovo stanje niste uticali vi.'
+        ]
+      },
+      {
+        title: 'Pljačka prodavnice',
+        items: [
+          'Za pljačku prodavnice **potreban je taoc**.',
+          'Ako imate dodatnog taoca, imaćete **jedan uslov više**.',
+          'Za prodavnicu imate pravo na **dva uslova**.',
+          'Policiju morate sačekati zbog pregovora.',
+          'Minimalan broj pljačkaša je **dva**.',
+          'Za pljačku prodavnice, obavezna je upotreba vatrenog oružja koje mora biti upereno u prodavca.',
+          'Ako oružje nije upereno u prodavca, policija ima pravo da upadne i da vas uhapsi.',
+          'Maksimalan broj vozila koja su uključena u beg je **2**.'
+        ]
+      },
+      {
+        title: 'Pljačka zlatara i male banke',
+        items: [
+          'Minimalan broj pljačkaša je **2**, maksimalan broj pljačkaša je **4** unutar objekta.',
+          'Izviđač može davati informacije, ali mora biti udaljen ceo blok od mesta dešavanja. Ne sme se mešati u pljačku kao ni u moguću pucnjavu.',
+          'Maksimalan broj vozila koja će biti korištena za beg je **dva**.',
+          'Taoc na pljački zlatara i male banke je **obavezan**. Maksimalan broj taoca u objektu je **2**.',
+          'Maksimalan broj uslova je **5**.',
+          'Na pljački male banke je dozvoljeno koristiti helikopter.',
+          'Taocu ne smete nuditi novac i nuditi mu bilo koji vid saradnje. Taocu ne smete stavljati stvari u džepove.'
+        ]
+      },
+      {
+        title: 'Pljačka glavne banke',
+        items: [
+          'Minimalan broj pljačkaša je **4**, a maksimalan broj pljačkaša je **6** unutar objekta.',
+          'Maksimalan broj vozila za beg je **4**.',
+          'Maksimalan broj taoca je **3**.',
+          'Maksimalan broj uslova je **5**.',
+          'Glavna banka može biti **open fire**.'
+        ]
+      },
+      {
+        title: 'Ilegalne lokacije',
+        items: [
+          'Branje i prerade su **open fire** lokacije.',
+          'Babica je **open fire** lokacija.',
+          'Zabranjeno je deljenje i prodaja ilegalnih lokacija sa drugim organizacijama.',
+          'Zabranjeno je kampovanje na lokacijama. Izviđanje i posmatranje je dozvoljeno, ali sa distance.',
+          'Maksimalan broj izviđača je **2**.'
+        ]
+      },
+      {
+        title: 'Udruživanje organizacija',
+        items: [
+          'Na svakoj pljački objekata, organizacije mogu biti udružene.',
+          'Maksimalan broj udruženih organizacija je **2**.',
+          'Ako dođe do pucnjave sa trećom organizacijom ili policijom, samo članovi koji su trenutno na pljački mogu zajedno pucati.',
+          'Ako je došlo do openfire pljačke, samo članovi koji su učestvovali u samoj pljački mogu pucati.',
+          'Ako je došlo do primopredaje između dve organizacije, a umešala se treća ili policija, organizacije se u tom momentu mogu udružiti protiv pretnje.',
+          'Udruživanje organizacija protiv policije ili treće organizacije je zabranjeno osim u navedenim slučajevima.',
+          'Organizacija sme pomagati drugoj organizaciji u izvlačenju ranjenih, ali ne sme koristiti vatreno oružje.'
+        ]
+      },
+      {
+        title: 'Cooldown i vremenska ograničenja',
+        items: [
+          'Svaka pljačka ima vremensko ograničenje između ponavljanja radnje i odnosi se na pojedinca, osim u slučajevima openfire pljački i pljačke glavne banke.',
+          '**Bankomat** — 2 sata',
+          '**Igrač** — 3 sata',
+          '**Prodavnica** — 8 sati',
+          '**Zlatara** — 12 sati',
+          '**Mala banka** — 12 sati',
+          '**Glavna banka** — 24 sata po organizaciji',
+          '**Voz** — 15 dana po organizaciji',
+          '**Blinda** — 7 dana po organizaciji'
+        ]
+      },
+      {
+        title: 'Pravilo perme',
+        items: [
+          'Perma mora biti izvršena vatrenim oružjem **bez prigušivača**.',
+          'Na **ME** i **DO** komande je obavezna provera pulsa. Ako se ME i DO komande ne koriste, perma se poništava.',
+          'Nepravilno izvedena perma se poništava i mora se pisati novi zahtev sa novim dokazima.',
+          'Ne smete pomerati telo sa lokacije na kojoj je perma izvršena.',
+          'Ne smete oduzimati telefon igraču kog permate.',
+          'Permu je moguće izvesti u safe zoni (isključujući bolnicu) jedino **snajperom**.',
+          'Kod snajper perme, puls se ne proverava.',
+          'Oružje kojim je perma izvršena mora ostati unutar vaše organizacije i ne sme se bacati ili prodavati.',
+          'Self-perma nije moguća i svaki pokušaj iste će se sankcionisati rigorozno.',
+          'Perma u permi znači da ako pokušate da izvršite permu nečijeg karaktera i isti vas ubije pre nego što vi izvršite permu, vaš karakter je perman.'
+        ]
+      },
+      {
+        title: 'Automafija',
+        items: [
+          'Svako ko pronađe lokacije za prepis i rastavljanje, automatski može koristiti privilegije automafije.',
+          'Nakon ukradenog vozila, od momenta kada osoba koja je ukrala vozilo objavi na Twitteru da je vozilo ukradeno, vlasnik ima **30 minuta** da se javi oko dogovora za otkup.',
+          'Vozilo bez prethodne objave na Twitteru ne smete prepisati na sebe, a ne smete ga rastaviti u delove.',
+          'Unikatna i donatorska vozila ne smeju biti prepisana, a ni rastavljena. Vlasnici unikatnih i donatorskih vozila dužni su da se jave za otkup. Ukoliko se vlasnik ne javi, automatski će se smatrati da krši pravilo **Fear**. Na računu će mu biti setan minus, a osobi koja je ukrala vozilo taj iznos će biti dodeljen. Otkupna cena donatorskih i unikatnih vozila je **20 000$**.',
+          'Niko osim pregovarača ne sme ući na radio. Imena na radiju se ne smeju čitati.',
+          'Ako se vozilo rastavi u delove, vozilo se trajno briše iz garaže vlasnika. Ako se vozilo prepiše na sebe, vozilo se prebacuje u garažu osobe koja ga je ukrala.',
+          'Policija se ne sme mešati u potragu osim ako vlasnik vozila nije prijavio krađu ili vlasnik nije policajac.',
+          'Otkupna cena po vozilu je **15%** od njegove salonske vrednosti.',
+          'Ako se vozilo rastavi, dobija se **10%** od vrednosti vozila.'
+        ]
+      }
+    ]
+  },
+  {
     menu: 'Fail RP',
     title: 'FAIL RP',
     lead: 'Ovo pravilo će biti strogo kažnjivo.',

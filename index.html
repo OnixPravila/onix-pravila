@@ -252,7 +252,8 @@
             background: linear-gradient(90deg, rgba(0, 180, 255, 0.18), transparent);
         }
 
-        nav button.pd-nav { color: var(--gold); }
+        nav button.pd-nav,
+        nav button.org-nav { color: var(--gold); }
 
         .page {
             position: relative;
@@ -711,7 +712,7 @@
     </div>
     <audio id="bgm" src="assets/ambient.mp3?v=5" loop preload="auto" playsinline></audio>
 
-    <script src="pravila.js?v=18"></script>
+    <script src="pravila.js?v=19"></script>
     <script>
         const video = document.getElementById('intro');
         const body = document.body;
@@ -805,6 +806,7 @@
                 btn.dataset.go = String(i);
                 btn.innerHTML = '<span class="n">' + pad(i + 1) + '</span> ' + rule.menu;
                 if (rule.id === 'pd') btn.classList.add('pd-nav');
+                if (rule.id === 'org') btn.classList.add('org-nav');
                 if (i === 0) btn.classList.add('active');
                 nav.appendChild(btn);
 
