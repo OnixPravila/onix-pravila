@@ -22,6 +22,7 @@ window.PRAVILA = [
     title: 'ONIX',
     kicker: 'Temeljne vrijednosti',
     intro: [
+      'Zbog olakšanja igre svim prisutnim članovima na serveru, molimo da detaljno pređete kroz server pravila kako bi sebi olakšali neometanu igru.',
       'Onix Roleplay temelji se na jasno definiranim vrijednostima koje predstavljaju osnovu naše zajednice. Te vrijednosti oblikuju način na koji pristupamo roleplayu, međusobnoj komunikaciji i razvoju servera.',
       'Njihova svrha je pružiti smjernice svakom igraču, pomoći u donošenju ispravnih odluka te jasno razlikovati prihvatljivo od neprihvatljivog ponašanja. Poštivanjem ovih vrijednosti zajedno gradimo kvalitetno, ozbiljno i ugodno roleplay okruženje za sve.'
     ],
