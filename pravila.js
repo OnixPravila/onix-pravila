@@ -178,6 +178,53 @@ window.PRAVILA = [
     ]
   },
   {
+    kind: 'sekcija',
+    menu: 'PD',
+    title: 'PD',
+    chapters: [
+      {
+        title: 'Korišćenje oružja',
+        items: [
+          'PD ima pravo da koristi oružje isključivo u situacijama kada je životno ugrožen.',
+          'Strogo je zabranjeno pucanje na prodajama ilegalnih supstanci i od strane mafije i od strane PD-a.',
+          'Pucanje na traffic stopovima je strogo zabranjeno, kao i pretresanje igrača osim ako nije na poternici.',
+          'Vređanje PD-a u ćelijama kažnjava se markerima za fear.'
+        ]
+      },
+      {
+        title: 'Tejzer',
+        items: [
+          'Tejzer se sme koristiti isključivo na manjim hit and run pljačkama, na prodajama i prilikom privođenja u određenim situacijama.',
+          'Tejzer se ne sme koristiti ako je igrač u vozilu ili na motoru.',
+          'Tejzer se na presedanjima koristi isključivo kada se igrač hvata za bravu ili se približava motoru.',
+          'Dok beži on foot, PD je dužan da ga juri on foot uz mogućnost obaranja.'
+        ]
+      },
+      {
+        title: 'Potera',
+        items: [
+          'PD mora poštovati uslove na pljačkama u trajanju od **30 minuta** od momenta početka potere, nakon toga uslovi prestaju da važe.',
+          'Bušenje guma je moguće spajkovima, spajkovi ne smeju biti postavljeni pre isteka uslova.',
+          'Pursuit mod se mora poštovati, vozila su raspoređena po klasama i sa razlogom. Ako PD juri D klasu i izgubi poteru, ne sme mijenjati klasu kako bi pronašao bjegunca.',
+          'Ako policajac koji juri ostane bez vozila (mehanički pokvareno vozilo) ne sme se vraćati nazad u poteru drugim autom.',
+          'Prevrtanje je automatski isključenje iz potere, nema nastavljanja bez izuzetaka.',
+          'PIT manevar je moguće izvršiti samo pri brzinama manjim od **50 km/h**.'
+        ]
+      },
+      {
+        title: 'Oprema',
+        items: [
+          'Ako je policajac kidnapovan zbog pljačke objekata (talačka situacija) ili otkupa, u tom slučaju od policajca sme biti oduzeto sve osim opreme za forenziku.',
+          'Ako je policajac kidnapovan isključivo da bi bio opljačkan, od policijske opreme se ne sme oduzimati ništa osim municije i pancira.',
+          'Policijsko oružje sme biti oduzeto isključivo na openfire pljačkama i u gore pomenutim situacijama.',
+          'Kazne za posedovanje policijske opreme su ogromne, samim tim na svoj rizik uzimate stvari.',
+          'Skidanje serijskih brojeva sa PD opreme je strogo zabranjeno.',
+          'Automafija može tražiti otkup za PD vozila.'
+        ]
+      }
+    ]
+  },
+  {
     menu: 'Fail RP',
     title: 'FAIL RP',
     lead: 'Ovo pravilo će biti strogo kažnjivo.',
