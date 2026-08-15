@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="bs">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin — ONIX pravila</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#00b4ff" />
+    <link rel="icon" href="assets/onix-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+    <div class="grain"></div>
+    <div class="scan"></div>
+
+    <div class="login-wrap" id="adminLogin">
+        <div class="login-card">
+            <img src="assets/onix-logo.png" alt="ONIX" />
+            <p class="kicker">Knjiga pravila</p>
+            <h1>ADMIN</h1>
+            <p class="lead">Ubaci, izmijeni i obriši pravila. Posjetioci ovdje ne ulaze.</p>
+            <form id="adminForm">
+                <input class="field" id="adminPass" type="password" placeholder="Lozinka" autocomplete="current-password" />
+                <p class="note" id="adminErr" hidden></p>
+                <button type="submit" class="btn gold" id="adminEnter">Uđi</button>
+            </form>
+            <a class="btn ghost" href="index.html">Nazad na knjigu</a>
+        </div>
+    </div>
+
+    <div class="admin-app" id="adminApp" hidden>
+        <header class="admin-top">
+            <div class="admin-brand">
+                <img src="assets/onix-logo.png" alt="" />
+                <div>
+                    <p class="kicker">ONIX</p>
+                    <b>Pravila</b>
+                </div>
+            </div>
+            <p class="admin-status" id="adminStatus">Spreman</p>
+            <div class="admin-actions">
+                <button type="button" class="btn gold" id="adminPublish">Objavi na sajt</button>
+                <button type="button" class="btn ghost" id="adminOut">Odjava</button>
+            </div>
+        </header>
+
+        <div class="hintbar">
+            <span>Zlatni tekst: napiši <span class="hit">**ovako**</span></span>
+            <span>Jedna stavka = jedan red.</span>
+            <span>Poslije objave pričekaj ~1 min pa Ctrl+F5 na knjizi.</span>
+        </div>
+
+        <div class="admin-split">
+            <aside class="col">
+                <div class="col-head">
+                    <h3>Stranice</h3>
+                    <button type="button" class="btn gold" id="addPage">+ Nova</button>
+                </div>
+                <div class="row-btns" style="margin-bottom:12px">
+                    <button type="button" class="btn ghost" id="moveUp">↑</button>
+                    <button type="button" class="btn ghost" id="moveDown">↓</button>
+                    <button type="button" class="btn ghost danger" id="delPage">Obriši</button>
+                </div>
+                <div class="chap-list" id="chapList"></div>
+            </aside>
+
+            <section class="col">
+                <h3>Uredi</h3>
+                <label class="lbl" for="rKind">Tip stranice</label>
+                <select class="field" id="rKind">
+                    <option value="uvod">Uvod (esej)</option>
+                    <option value="kazne">Kazne (broj + kazna)</option>
+                    <option value="sekcija">Poglavlja (liste)</option>
+                    <option value="lista">Lista (Fail RP, PG…)</option>
+                </select>
+
+                <label class="lbl" for="rMenu">Ime u meniju</label>
+                <input class="field" id="rMenu" type="text" />
+
+                <label class="lbl" for="rTitle">Naslov na stranici</label>
+                <input class="field" id="rTitle" type="text" />
+
+                <label class="lbl" for="rKicker">Kicker (sitni natpis iznad)</label>
+                <input class="field" id="rKicker" type="text" />
+
+                <label class="lbl" for="rLead">Uvodna rečenica</label>
+                <textarea class="field" id="rLead" rows="2"></textarea>
+
+                <label class="lbl" for="rId">ID (opcionalno — pd / org za boju u meniju)</label>
+                <input class="field" id="rId" type="text" />
+
+                <div id="kindFields"></div>
+
+                <div class="pub">
+                    <label class="lbl" for="ghToken">GitHub token (samo na ovom računaru)</label>
+                    <input class="field" id="ghToken" type="password" placeholder="ghp_…" autocomplete="off" />
+                    <p class="note">Isti token kao za glavni sajt. Repo scope. Na ovom računaru se pamti.</p>
+                    <div class="row-btns">
+                        <button type="button" class="btn ghost" id="saveToken">Spremi token</button>
+                        <button type="button" class="btn ghost" id="dlData">Preuzmi JSON</button>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="col preview-col">
+                <h3>Pregled</h3>
+                <div class="preview" id="livePreview"></div>
+            </aside>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

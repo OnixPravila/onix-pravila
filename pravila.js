@@ -1,19 +1,7 @@
 // ============================================================
 // ONIX ROLEPLAY — PRAVILA
-// Ovdje mijenjaš i dodaješ pravila. index.html NE DIRATI.
-//
-// **OVAKO**  = zlatni tekst (važna riječ)
-// menu       = ime u lijevom meniju
-// title      = veliki naslov na stranici
-// lead       = rečenica ispod naslova
-// items      = lista tačaka
-// fines      = pravila s kaznom (no, text, penalty)
-// zones      = kvadratići (safe zone) — opcionalno
-// codes      = kratice (LTA) — opcionalno
-//
-// Novo pravilo: kopiraj cijeli { ... }, zalijepi na dno niza, izmijeni tekst.
-// Obriši pravilo: obriši cijeli { ... } uključujući zarez.
-// Poslije snimanja: refresh u Chromeu (F5).
+// Uređuj preko admin.html (ne diraj index.html).
+// **OVAKO** = zlatni tekst.
 // ============================================================
 
 window.PRAVILA = [
