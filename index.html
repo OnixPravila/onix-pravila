@@ -709,7 +709,7 @@
     </div>
     <audio id="bgm" src="assets/ambient.mp3?v=5" loop preload="auto" playsinline></audio>
 
-    <script src="pravila.js?v=15"></script>
+    <script src="pravila.js?v=16"></script>
     <script>
         const video = document.getElementById('intro');
         const body = document.body;
@@ -769,6 +769,22 @@
             return html;
         }
 
+        function buildSekcija(rule, i, total) {
+            let html = '<p class="idx">' + pad(i + 1) + ' / ' + pad(total) + '</p>';
+            if (rule.kicker) html += '<p class="kicker" style="margin-bottom:8px">' + rule.kicker + '</p>';
+            html += '<h2>' + rule.title + '</h2>';
+            if (rule.lead) html += '<p class="lead">' + gold(rule.lead) + '</p>';
+            (rule.chapters || []).forEach((ch) => {
+                html += '<section class="chapter">';
+                html += '<h3>' + ch.title + '</h3>';
+                if (ch.items && ch.items.length) {
+                    html += '<ul>' + ch.items.map((item) => '<li>' + gold(item) + '</li>').join('') + '</ul>';
+                }
+                html += '</section>';
+            });
+            return html;
+        }
+
         function build() {
             const total = rules.length;
             rules.forEach((rule, i) => {
@@ -785,6 +801,8 @@
                     art.innerHTML = buildUvod(rule, i, total);
                 } else if (rule.kind === 'kazne') {
                     art.innerHTML = buildKazne(rule, i, total);
+                } else if (rule.kind === 'sekcija') {
+                    art.innerHTML = buildSekcija(rule, i, total);
                 } else {
                     let html = '<p class="idx">' + pad(i + 1) + ' / ' + pad(total) + '</p>';
                     html += '<h2>' + rule.title + '</h2>';

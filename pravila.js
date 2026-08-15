@@ -117,66 +117,64 @@ window.PRAVILA = [
     ]
   },
   {
-    menu: 'Oblačenje',
-    title: 'OBLAČENJE',
-    lead: 'Pravila odijevanja na serveru.',
-    items: [
-      'Strogo je **zabranjeno** igračima koji nisu dio državnih organizacija oblačenje uniforme policije, bolnice, vatrogasaca.',
-      'Zabranjeno oblačenje garderobe koja skrnavi vjeru, nacionalnost, rasnu pripadnost.',
-      '**Perma ban** za vrijeđanje igrača na nacionalnoj/vjerskoj/rasnoj osnovi.'
-    ]
-  },
-  {
-    menu: 'Perma',
-    title: 'PERMA BAN',
-    lead: 'Ovo vodi na permanent ban.',
-    items: [
-      '**GOVOR**',
-      'Psovanje/vrijeđanje staff-a.',
-      'Psovanje i vrijeđanje porodice igračima.',
-      '**Exploiti.**',
-      'Bilo koji vid čitovanja.',
-      'Trolovanje.'
-    ]
-  },
-  {
-    menu: 'Discord',
-    title: 'DISCORD',
-    lead: 'Pravila Discorda i administracije.',
-    items: [
-      'Zabranjeno biti u voice kanalima sa igračima koji su na serveru (osim sa adminom kada rješavate problem).',
-      'Svaki Discord organizacije mora imati jednog člana staffa sa svim permisijama.',
-      'Svaki razgovor u sobama za pomoć se snima, ali se čuva privatnost.',
-      'Staff ima pravo da provjeri Discord dopisivanja ako posumnja na **metagaming**.',
-      'Svaki igrač koji više od **dva puta** ode na markere u periodu od **30 dana** biće banovan na **7 dana** uz ponovno polaganje WL-a.'
-    ]
-  },
-  {
-    menu: 'NLR',
-    title: 'NLR',
-    lead: 'NLR, amnezija, ludilo.',
-    items: [
-      '**NLR** na serveru ne postoji — sjećate se svega do momenta dok niste ostali bez svijesti.',
-      'U trenutku kada ostanete bez svijesti, ne možete se sjećati događaja koji traju.',
-      '**Amnezija** na serveru ne postoji i svaki pokušaj će biti sankcionisan.',
-      'Ludake **ne smete** roleplay-ati — svaki pokušaj da se izbjegne RP ili izađe kao pobjednik biće strogo sankcionisan.'
-    ]
-  },
-  {
-    menu: 'Ilegalno',
-    title: 'ILEGALNO',
-    lead: 'Pravila vezana za ilegalne radnje.',
-    items: [
-      'Nakon ilegalnih radnji koje uključuju druge organizacije ili policiju, igrač **ne smije** napuštati server **30 minuta**.',
-      'Nakon pljačke, zabranjeno vraćanje u bazu narednih **30 minuta**.',
-      'Ako bježite firminim vozilom i skočite u vodu tokom potere, vozilo se **trajno briše** iz organizacije.',
-      '**Fear** prema svojoj imovini je obavezan.',
-      'Na ilegalnim lokacijama obavezno je koristiti **voice changer**.',
-      'Zabranjeno biti na kriptovanim radio frekvencijama tokom ilegalnih radnji.',
-      'Ilegalne radnje dozvoljene do **02:00h**.',
-      'Ne započinjati RP situacije koje se ne mogu završiti do **02:00h**.',
-      'Maske su obavezne tokom ilegalnih radnji.',
-      'Zabranjeno čekanje (kampovanje) na ilegalnim lokacijama. Posmatranje sa distance je dozvoljeno.'
+    kind: 'sekcija',
+    menu: 'Server',
+    title: 'SERVER',
+    kicker: 'Pravila servera',
+    chapters: [
+      {
+        title: 'Oblačenje',
+        items: [
+          'Strogo je **zabranjeno** igračima koji nisu dio državnih organizacija oblačenje uniforme policije, bolnice, vatrogasaca.',
+          'Zabranjeno oblačenje garderobe koja skrnavi vjeru, nacionalnost, rasnu pripadnost.',
+          '**Perma ban** za vrijeđanje igrača na nacionalnoj/vjerskoj/rasnoj osnovi.'
+        ]
+      },
+      {
+        title: 'Permanent ban',
+        items: [
+          '**GOVOR**',
+          'Psovanje/vrijeđanje staff-a.',
+          'Psovanje i vrijeđanje porodice igračima.',
+          '**Exploiti.**',
+          'Bilo koji vid čitovanja.',
+          'Trolovanje.'
+        ]
+      },
+      {
+        title: 'Discord',
+        items: [
+          'Zabranjeno biti u voice kanalima sa igračima koji su na serveru (osim sa adminom kada rješavate problem).',
+          'Svaki Discord organizacije mora imati jednog člana staffa sa svim permisijama.',
+          'Svaki razgovor u sobama za pomoć se snima, ali se čuva privatnost.',
+          'Staff ima pravo da provjeri Discord dopisivanja ako posumnja na **metagaming**.',
+          'Svaki igrač koji više od **dva puta** ode na markere u periodu od **30 dana** biće banovan na **7 dana** uz ponovno polaganje WL-a.'
+        ]
+      },
+      {
+        title: 'NLR, amnezija, ludilo',
+        items: [
+          '**NLR** na serveru ne postoji — sjećate se svega do momenta dok niste ostali bez svijesti.',
+          'U trenutku kada ostanete bez svijesti, ne možete se sjećati događaja koji traju.',
+          '**Amnezija** na serveru ne postoji i svaki pokušaj će biti sankcionisan.',
+          'Ludake **ne smete** roleplay-ati — svaki pokušaj da se izbjegne RP ili izađe kao pobjednik biće strogo sankcionisan.'
+        ]
+      },
+      {
+        title: 'Ilegalne radnje',
+        items: [
+          'Nakon ilegalnih radnji koje uključuju druge organizacije ili policiju, igrač **ne smije** napuštati server **30 minuta**.',
+          'Nakon pljačke, zabranjeno vraćanje u bazu narednih **30 minuta**.',
+          'Ako bježite firminim vozilom i skočite u vodu tokom potere, vozilo se **trajno briše** iz organizacije.',
+          '**Fear** prema svojoj imovini je obavezan.',
+          'Na ilegalnim lokacijama obavezno je koristiti **voice changer**.',
+          'Zabranjeno biti na kriptovanim radio frekvencijama tokom ilegalnih radnji.',
+          'Ilegalne radnje dozvoljene do **02:00h**.',
+          'Ne započinjati RP situacije koje se ne mogu završiti do **02:00h**.',
+          'Maske su obavezne tokom ilegalnih radnji.',
+          'Zabranjeno čekanje (kampovanje) na ilegalnim lokacijama. Posmatranje sa distance je dozvoljeno.'
+        ]
+      }
     ]
   },
   {
