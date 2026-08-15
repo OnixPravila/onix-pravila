@@ -493,6 +493,39 @@
 
         .verdict p:last-child { margin: 0; color: var(--gold); }
 
+        .fine {
+            margin: 0 0 16px;
+            padding: 16px 18px 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-left: 3px solid var(--cyan);
+        }
+
+        .fine .no {
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 0.22em;
+            margin-bottom: 8px;
+        }
+
+        .fine p {
+            font-size: 16px;
+            line-height: 1.55;
+            margin: 0 0 12px;
+        }
+
+        .kazna {
+            padding: 10px 12px;
+            background: rgba(160, 18, 28, 0.28);
+            border: 1px solid rgba(255, 80, 80, 0.35);
+            color: #ff8b8b;
+            font-size: 12px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .kazna b { color: #ffd0d0; }
+
         .soundwrap {
             position: fixed;
             right: 22px;
@@ -676,7 +709,7 @@
     </div>
     <audio id="bgm" src="assets/ambient.mp3?v=5" loop preload="auto" playsinline></audio>
 
-    <script src="pravila.js?v=5"></script>
+    <script src="pravila.js?v=11"></script>
     <script>
         const video = document.getElementById('intro');
         const body = document.body;
@@ -721,6 +754,21 @@
             return html;
         }
 
+        function buildKazne(rule, i, total) {
+            let html = '<p class="idx">' + pad(i + 1) + ' / ' + pad(total) + '</p>';
+            if (rule.kicker) html += '<p class="kicker" style="margin-bottom:8px">' + rule.kicker + '</p>';
+            html += '<h2>' + rule.title + '</h2>';
+            if (rule.lead) html += '<p class="lead">' + gold(rule.lead) + '</p>';
+            (rule.fines || []).forEach((f) => {
+                html += '<div class="fine">';
+                html += '<p class="no">' + f.no + '</p>';
+                html += '<p>' + gold(f.text) + '</p>';
+                if (f.penalty) html += '<p class="kazna"><b>Kazna:</b> ' + gold(f.penalty) + '</p>';
+                html += '</div>';
+            });
+            return html;
+        }
+
         function build() {
             const total = rules.length;
             rules.forEach((rule, i) => {
@@ -735,6 +783,8 @@
                 if (i === 0) art.classList.add('active');
                 if (rule.kind === 'uvod') {
                     art.innerHTML = buildUvod(rule, i, total);
+                } else if (rule.kind === 'kazne') {
+                    art.innerHTML = buildKazne(rule, i, total);
                 } else {
                     let html = '<p class="idx">' + pad(i + 1) + ' / ' + pad(total) + '</p>';
                     html += '<h2>' + rule.title + '</h2>';

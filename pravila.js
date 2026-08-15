@@ -7,6 +7,7 @@
 // title      = veliki naslov na stranici
 // lead       = rečenica ispod naslova
 // items      = lista tačaka
+// fines      = pravila s kaznom (no, text, penalty)
 // zones      = kvadratići (safe zone) — opcionalno
 // codes      = kratice (LTA) — opcionalno
 //
@@ -69,6 +70,50 @@ window.PRAVILA = [
       'Ako se ne slažete s temeljnim vrijednostima koje čine Onix Roleplay i niste spremni pridržavati ih se, onda ovaj server vjerojatno nije pravo mjesto za vas.',
       'Naš cilj nije okupiti najveći broj igrača, već izgraditi zajednicu u kojoj se poštuju pravila, cijeni kvalitetan roleplay i međusobno uvažavanje. Upravo zato od svakog člana očekujemo da ove vrijednosti prihvati i primjenjuje u svakodnevnoj igri.',
       'Hvala svima koji svojim ponašanjem doprinose razvoju zajednice i pomažu da Onix Roleplay bude mjesto na koje se igrači uvijek rado vraćaju.'
+    ]
+  },
+  {
+    kind: 'kazne',
+    menu: 'Karakter',
+    title: 'KARAKTER',
+    kicker: 'Pravila kreiranja karaktera',
+    lead: 'Ova pravila važe od trenutka kreiranja lika. Nema izuzetaka.',
+    fines: [
+      {
+        no: '1.0',
+        text: 'Kada kreirate vašeg karaktera **zabranjeno** je ići u legalne organizacije ili raditi bilo šta ilegalno prva **3 dana**.',
+        penalty: 'Upozorenje i ban 2 dana!'
+      },
+      {
+        no: '1.1',
+        text: 'Vaš karakter **ne smije** imati veze s ratnim zločincima iz stvarnog života, niti smije biti kopija poznatih ličnosti iz stvarnosti, filma ili serije. Ime, izgled i priča lika moraju biti tvoji. Imitacija stvarnih ili filmskih osoba nije dozvoljena.',
+        penalty: 'Upozorenje i prilagođavanje karaktera!'
+      },
+      {
+        no: '1.2',
+        text: 'Vaš karakter ne smije imati neozbiljna ili nerealna imena poput **"Nakitu Minajasi"**!',
+        penalty: 'Upozorenje i prilagođavanje imena/karaktera!'
+      },
+      {
+        no: '1.3',
+        text: 'Vaš karakter ne smije biti napravljen po defaultu. (Za PED-a, javite se na Ticket.)',
+        penalty: 'Upozorenje i prilagođavanje karaktera!'
+      },
+      {
+        no: '1.4',
+        text: 'Moraju vam biti vidljivi svi dijelovi tijela! Ne možete biti npr. bez ruku, nogu i sl.',
+        penalty: 'Upozorenje i prilagođavanje karaktera!'
+      },
+      {
+        no: '1.5',
+        text: 'Zabranjeno koristiti karakter suprotnog spola!',
+        penalty: 'Upozorenje i prilagođavanje karaktera!'
+      },
+      {
+        no: '1.6',
+        text: 'Zabranjeno je prenošenje itema/novca sa jednog karaktera na drugi!',
+        penalty: 'Perma ban!'
+      }
     ]
   },
   {
