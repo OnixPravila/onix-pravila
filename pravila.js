@@ -86,7 +86,7 @@ window.PRAVILA = [
       },
       {
         no: '1.1',
-        text: 'Vaš karakter **ne sme** imati veze sa ratnim zločincima stvarnog života.',
+        text: 'Vaš karakter **ne sme** imati veze sa ratnim zločincima stvarnog života ili poznatim ličnostima iz stvarnosti.',
         penalty: 'Upozorenje i prilagođavanje karaktera!'
       },
       {
