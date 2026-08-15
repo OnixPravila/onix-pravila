@@ -20,7 +20,6 @@ window.PRAVILA = [
     kind: 'uvod',
     menu: 'Uvod',
     title: 'ONIX',
-    badge: 'Medium Roleplay',
     kicker: 'Temeljne vrijednosti',
     intro: [
       'Onix Roleplay temelji se na jasno definiranim vrijednostima koje predstavljaju osnovu naše zajednice. Te vrijednosti oblikuju način na koji pristupamo roleplayu, međusobnoj komunikaciji i razvoju servera.',
