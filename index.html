@@ -252,6 +252,8 @@
             background: linear-gradient(90deg, rgba(0, 180, 255, 0.18), transparent);
         }
 
+        nav button.pd-nav { color: var(--gold); }
+
         .page {
             position: relative;
             overflow: auto;
@@ -709,7 +711,7 @@
     </div>
     <audio id="bgm" src="assets/ambient.mp3?v=5" loop preload="auto" playsinline></audio>
 
-    <script src="pravila.js?v=17"></script>
+    <script src="pravila.js?v=18"></script>
     <script>
         const video = document.getElementById('intro');
         const body = document.body;
@@ -727,6 +729,17 @@
 
         function pad(n) {
             return String(n).padStart(2, '0');
+        }
+
+        function slug(rule) {
+            return String(rule.id || rule.menu || '').toLowerCase().replace(/\s+/g, '');
+        }
+
+        function pageFromHash() {
+            const h = String(location.hash || '').replace(/^#/, '').toLowerCase().replace(/\s+/g, '');
+            if (!h) return 0;
+            const i = rules.findIndex((r) => slug(r) === h || String(r.menu || '').toLowerCase().replace(/\s+/g, '').indexOf(h) !== -1);
+            return i >= 0 ? i : 0;
         }
 
         function buildUvod(rule, i, total) {
@@ -791,6 +804,7 @@
                 const btn = document.createElement('button');
                 btn.dataset.go = String(i);
                 btn.innerHTML = '<span class="n">' + pad(i + 1) + '</span> ' + rule.menu;
+                if (rule.id === 'pd') btn.classList.add('pd-nav');
                 if (i === 0) btn.classList.add('active');
                 nav.appendChild(btn);
 
@@ -885,7 +899,7 @@
             body.classList.remove('is-playing', 'gate');
             body.classList.add('done');
             startAmbience();
-            show(0);
+            show(pageFromHash());
         }
 
         function enter() {
@@ -915,6 +929,10 @@
             mark.textContent = rules[page].title;
             mark.classList.toggle('brand', rules[page].kind === 'uvod');
             document.querySelector('.page').scrollTo({ top: 0, behavior: 'smooth' });
+            const s = slug(rules[page]);
+            if (s && location.hash.replace('#', '') !== s) {
+                history.replaceState(null, '', '#' + s);
+            }
         }
 
         video.addEventListener('ended', freezeEnd);
@@ -935,6 +953,9 @@
         document.getElementById('prev').addEventListener('click', () => show(page - 1));
         document.getElementById('next').addEventListener('click', () => show(page + 1));
         document.getElementById('soundBtn').addEventListener('click', toggleAmbience);
+        window.addEventListener('hashchange', () => {
+            if (body.classList.contains('done')) show(pageFromHash());
+        });
     </script>
 </body>
 </html>

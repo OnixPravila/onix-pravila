@@ -179,8 +179,10 @@ window.PRAVILA = [
   },
   {
     kind: 'sekcija',
-    menu: 'PD',
+    id: 'pd',
+    menu: 'PD pravila',
     title: 'PD',
+    kicker: 'PD pravila',
     chapters: [
       {
         title: 'Korišćenje oružja',
